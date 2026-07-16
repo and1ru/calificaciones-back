@@ -1,71 +1,53 @@
-** register **
-name
-email
-password
-confirm password
-rol
-
-** login **
-email
-password
-
-** dashboard **
-* profesor *
-ver todos los grupos y la materia
-
-* estudiante *
-ver las materias a las que pertenece
-
-user schema
+user schema -> login y register ✔
 -------------------------------------------
 | user_id | name | email | password | rol |
 -------------------------------------------
 | 1 | andres | andres@gmail.com | 123456 | estudiante / profesor |
 ------------------------------------------------------------------
 
-group schema
+group schema -> create group ✔
 -------------------------
 | group_id | group_name |
 -------------------------
 | 1 | "10-1" |
 --------------
 
-subject schema
+subject schema -> create subject, get subject ✔
 -----------------------------
 | subject_id | subject_name |
 -----------------------------
 | 1 | matematicas |
 -------------------
 
-teacher subject
+teacher subject -> create teacher ✔
 -----------------------------------------------------------
 | teacher_subject_id | teacher_id | group_id | subject_id |
 -----------------------------------------------------------
 | 1 | 1 | 1 | 1 |
 -----------------
 
-student group
+student group -> student to group
 --------------------------------------------
 | student_group_id | student_id | group_id |
 --------------------------------------------
 | 1 | 2 | 1 |
 -------------
 
-activity
+activity -> create activity
 ---------------------------------------------------------------------
 | activity_id | teacher_subject_id | name | percentage | created_at |
 ---------------------------------------------------------------------
 | 1 | 1 | "partial 1" | 30 | "2020-02-02" |
 -------------------------------------------
 
-grade
+grade -> asing grade, update grade, get_grades ✔
 -----------------------------------------------
 | grade_id | activity_id | student_id | grade |
 -----------------------------------------------
 | 1 | 1 | 2 | 3.4 |
 -------------------
 
-attendance_session
+attendance_session -> create attendance
 ------------------------------------------
 | session_id | teacher_subject_id | date |
 ------------------------------------------
@@ -74,7 +56,7 @@ attendance_session
 | 2 | 1 | 2026-02-17 |
 ----------------------
 
-attendance
+attendance -> take attendance
 ----------------------------------------------------
 | attendance_id | session_id | student_id | status |
 ----------------------------------------------------
