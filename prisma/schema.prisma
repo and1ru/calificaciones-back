@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum UserRole{
+  root
+  teacher
+  student
+}
+
+model Schools{
+  school_id Int @id @default(autoincrement())
+  school_name String
+  school_city String
+  school_address String
+}
+
+model Users{
+  user_id Int @id @default(autoincrement())
+  user_name String
+  user_password String
+  user_email String
+  user_role UserRole
+  school_id Int
+}
+
+model Branches{
+  branch_id Int @id @default(autoincrement())
+  branch_name String
+  branch_address String
+  school_id Int
+}
+
+model Groups{
+  group_id Int @id @default(autoincrement())
+  group_name String
+  branch_id Int
+}
+
+model Subject{
+  subject_id Int @id @default(autoincrement())
+  subject_name String
+  school_id Int
+}
+
+model Group_subject{
+  group_subject_id Int @id @default(autoincrement())
+  user_id Int
+  subject_id Int
+  group_id Int
+}
+
+model Group_student{
+  group_student_id Int @id @default(autoincrement())
+  group_id Int
+  user_id Int
+}
+
+model Assignments{
+  assignment_id Int @id @default(autoincrement())
+  group_subject_id Int
+  assignment_name String
+  assignment_date DateTime
+}
+
+model Grades{
+  grade_id Int @id @default(autoincrement())
+  assinment_id Int
+  user_id Int
+  score Decimal
+}
