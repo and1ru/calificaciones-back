@@ -19,7 +19,7 @@ export class LoginService {
         }
 
         // generate a token
-        const token = generateToken({id:user.user_id, rol:user.user_role})
+        const token = generateToken({id:user.user_id, role:user.user_role, schoolId:user.school_id})
         // return token
         return {token}
     }

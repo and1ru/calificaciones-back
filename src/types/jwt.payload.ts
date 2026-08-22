@@ -1,4 +1,5 @@
 export interface Payload {
     id: number;
-    rol: string;
+    role: string;
+    schoolId:number
 }
