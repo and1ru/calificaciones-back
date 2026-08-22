@@ -14,12 +14,10 @@ export const errorMiddleware = (err:unknown, req:Request, res:Response, next:Nex
 
     if(err instanceof jwt.TokenExpiredError){
         return res.status(401).json({success:false, message:"expired token"})
-
     }
 
     if(err instanceof ZodError){
-        return res.status(400).json({success:false, message:"validation error", errors: err.flatten().fieldErrors})
-        
+        return res.status(400).json({success:false, message:"validation error", errors: err.issues})
     }
 
     console.error(err)
